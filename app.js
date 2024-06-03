@@ -9,6 +9,11 @@ app.use(bodyParser.json());
 
 app.use(cors())
 
+// Endpoint de healthcheck
+app.get("/health", (req, res) => {
+    res.status(200).send("Servidor está funcionando corretamente.");
+});
+
 app.get("/alunos", async (req,res) => {
     const alunos = await getAlunos();
     res.send(alunos);
