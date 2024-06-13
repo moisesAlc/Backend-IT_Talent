@@ -5,6 +5,7 @@ dotenv.config();
 
 const pool = mysql.createPool({
     host: process.env.MYSQL_IP,
+    port: process.env.MYSQL_PORT,
     user: process.env.MYSQL_USER,
     password: process.env.MYSQL_ROOT_PASSWORD,
     database: process.env.MYSQL_DATABASE,
@@ -32,12 +33,3 @@ export async function createAluno(nome, idade, cidade){
     const id = result[0].insertId;
     return getAluno(id);
 }
-
-// const alunos = await getAlunos();
-// console.log(alunos);
-
-// const aluno = await getAluno(3);
-// console.log(aluno);
-
-// const result = await createAluno('João', 27, 'Salvador');
-// console.log(result)
